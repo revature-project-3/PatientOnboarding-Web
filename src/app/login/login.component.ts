@@ -82,8 +82,7 @@ export class LoginComponent implements OnInit {
       firstName: '',
       lastName: '',
       occupation: '',
-      birthdate: '',
-      hobbies: ''
+      birthdate: ''
     };
 
   }

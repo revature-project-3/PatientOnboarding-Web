@@ -8,7 +8,7 @@ import { AuthenticationService } from '../services';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  title = 'Project2';
+  title = 'Patient Onboarding';
   currentUser: any;
   navbarOpen = false;
   constructor(private router: Router, private authenticationService: AuthenticationService) {

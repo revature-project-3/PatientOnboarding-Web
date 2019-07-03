@@ -1,4 +1,3 @@
-import { UserProfile } from './Profile';
 
 export interface IUser {
     password: string;
@@ -9,15 +8,4 @@ export interface IUser {
     lastName: string;
     occupation: string;
     birthdate: string;
-    hobbies: string;
 }
-/*
-	// private List<Post> posts;
-	private String email;
-	private String firstName;
-	private String lastName;
-	private String occupation;
-	private Timestamp birthdate;
-	private String hobbies;
-	String imageLink;
-*/

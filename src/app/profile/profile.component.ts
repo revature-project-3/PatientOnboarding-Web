@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, CurrentUserService } from '../services';
 import { IUser } from '../services/User';
 import { Subscription, Observable, of } from 'rxjs';
-import { UserProfile } from '../services/Profile';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -14,7 +13,6 @@ export class ProfileComponent implements OnInit {
   subscription: Subscription;
   logUser: IUser;
   currentUser: IUser;
-  userProfile: UserProfile;
   bannerImage = 'assets/Cool-Cat-Cropped.jpg';
   user_id: number;
   navigationSubscription: Subscription;
@@ -32,8 +30,7 @@ export class ProfileComponent implements OnInit {
         firstName: '',
         lastName: '',
         birthdate: '',
-        occupation: '',
-        hobbies: ''
+        occupation: ''
     };
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
         // If it is a NavigationEnd event re-initalise the component
