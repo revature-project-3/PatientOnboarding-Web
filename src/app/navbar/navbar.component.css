@@ -1,4 +1,11 @@
-/*
+
+.navbar-header {
+  margin-left:0px;
+  width:100%;
+}
+#logout {
+  float:right;
+}
 .navbar-default {
     background: rgb(27, 162, 240);
     color: white;
@@ -6,6 +13,8 @@
     padding: 0;
     margin-top: -1px;
     border-radius: 0;
+    margin-left:0px;
+    width:100%;
 }
 
 .navbar-brand {
@@ -20,11 +29,12 @@
     color: white;
 }
 
-.nav-item a {
+.nav-item {
     font-size: 1.25em;
     color: white;
     background: rgb(27, 162, 240);
-    padding-left: 10px;
+    padding-right: 25px;
+    padding-top: 11px;
 }
 
 .nav-item a:hover {
@@ -43,4 +53,4 @@
     flex-direction: row;
     flex-grow: 1;
 }
-*/
+

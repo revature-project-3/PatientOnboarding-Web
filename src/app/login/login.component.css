@@ -11,10 +11,17 @@
     padding: 20px;
     width: 75%;
     height: 70%;
-    background-color: rgba(0, 0, 0, 0.6);    
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
 }
 
 #jumbotron h1 {
     cursor: default;
+}
+#register {
+  color: white;
+
+}
+#register:hover {
+  text-decoration: none;
 }
