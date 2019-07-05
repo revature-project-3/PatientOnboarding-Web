@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services';
+import { EdituserComponent } from '../edituser/edituser.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +13,7 @@ export class NavbarComponent implements OnInit {
   title = 'Patient Onboarding';
   currentUser: any;
   navbarOpen = false;
-  constructor(private router: Router, private authenticationService: AuthenticationService) {
+  constructor(private mod: NgbModal, private router: Router, private authenticationService: AuthenticationService) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
@@ -26,5 +28,16 @@ export class NavbarComponent implements OnInit {
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
+  }
+
+  openFormModal() {
+    const modalRef = this.mod.open(EdituserComponent);
+    modalRef.componentInstance.id = 10; // should be the id
+
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 }

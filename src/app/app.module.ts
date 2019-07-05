@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MedicalHistoryComponent } from './medical-history/medical-history.component';
+import { EdituserComponent } from './edituser/edituser.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,12 @@ import { MedicalHistoryComponent } from './medical-history/medical-history.compo
     ProfileComponent,
     RegisterComponent,
     HomePageComponent,
-    MedicalHistoryComponent
+    MedicalHistoryComponent,
+    EdituserComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -32,10 +36,13 @@ import { MedicalHistoryComponent } from './medical-history/medical-history.compo
       { path: 'home', component: HomePageComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: '', component: ProfileComponent}
+      { path: '', component: HomePageComponent}
     ], { onSameUrlNavigation: 'reload' })
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    EdituserComponent
+  ]
 })
 export class AppModule { }
