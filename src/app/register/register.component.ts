@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
         private userService: CurrentUserService
     ) {
         this.regUser = {
-            user_id: 0,
+            userId: 0,
             username: '',
             password: '',
             email: '',

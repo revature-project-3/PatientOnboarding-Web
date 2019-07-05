@@ -1,13 +1,12 @@
-<!-- <nav id="navbar" class="navbar navbar-default " *ngIf="!currentUser">
+<nav id="navbar" class="navbar navbar-default " *ngIf="!currentUser">
   <div id="main-nav" class="nav navbar-nav">
       <p class="nav navbar-brand">{{title}}</p>
-      <a class="nav-item nav-link" routerLink="/register">Register</a>
-      <a class="nav-item nav-link" routerLink="/login">Login</a>
+      <!-- <a class="nav-item nav-link" routerLink="/register">Register</a>
+      <a class="nav-item nav-link" routerLink="/login">Login</a> -->
   </div>
-  (click)="openModal()"
-</nav> -->
+</nav>
 
-<nav id="navbar" class="navbar navbar-default " *ngIf="!currentUser">
+<nav id="navbar" class="navbar navbar-default " *ngIf="currentUser">
   <a class="navbar-brand">{{title}}</a>
   <div id="main-nav" class="nav navbar-nav">
       <a class="nav-item nav-link" routerLink="/home">Home</a>

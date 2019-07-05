@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
                 private fetchUserService: CurrentUserService
             ) {
     this.currentUser = {
-        user_id: 0,
+        userId: 0,
         username: '',
         password: '',
         email: '',
