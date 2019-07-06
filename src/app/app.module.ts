@@ -14,6 +14,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MedicalHistoryComponent } from './medical-history/medical-history.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegisterComponent,
     HomePageComponent,
     MedicalHistoryComponent,
-    EdituserComponent
+    EdituserComponent,
+    ScheduleAppointmentComponent
   ],
   imports: [
     BrowserModule,

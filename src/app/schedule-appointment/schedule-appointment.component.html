@@ -1,0 +1,13 @@
+<div style="padding: 7px">
+  <form [formGroup]="myForm">
+    <p>
+        <!--dater picker code-->
+        date picker
+    </p>
+  </form>
+  <p *ngIf="myForm.valid">
+    Your choice: {{myForm.value.chosenDate | date: 'dd/MM/y H:mm:ss'}}
+  </p>
+
+
+</div>
