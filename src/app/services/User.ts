@@ -8,4 +8,7 @@ export interface IUser {
     lastName: string;
     occupation: string;
     birthdate: string;
+    homePhone: string;
+    mobilePhone: string;
+    address: string;
 }

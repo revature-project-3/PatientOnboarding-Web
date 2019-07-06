@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   logUser: IUser;
   currentUser: IUser;
   bannerImage = 'assets/Cool-Cat-Cropped.jpg';
-  user_id: number;
+  userId: number;
   navigationSubscription: Subscription;
 
   constructor(  private router: Router,
@@ -30,7 +30,10 @@ export class ProfileComponent implements OnInit {
         firstName: '',
         lastName: '',
         birthdate: '',
-        occupation: ''
+        occupation: '',
+        homePhone: '',
+        mobilePhone: '',
+        address: ''
     };
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
         // If it is a NavigationEnd event re-initalise the component
@@ -44,14 +47,15 @@ export class ProfileComponent implements OnInit {
       this.userService.currentUser.subscribe(
         cUser => this.logUser = cUser
       );
-      this.user_id = +this.route.snapshot.paramMap.get('id');
-      console.log(this.user_id);
+      this.userId = +this.route.snapshot.paramMap.get('id');
+      console.log(this.userId);
       this.getUser();
   }
   getUser(): void {
-    this.fetchUserService.getById(this.user_id).subscribe(cUser => {
-        this.currentUser = cUser;
-    });
+      this.currentUser = this.logUser;
+    // this.fetchUserService.getById(this.user_id).subscribe(cUser => {
+    //     this.currentUser = cUser;
+    // });
   }
 
 }

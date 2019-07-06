@@ -36,7 +36,10 @@ export class RegisterComponent implements OnInit {
             firstName: '',
             lastName: '',
             occupation: '',
-            birthdate: ''
+            birthdate: '',
+            homePhone: '',
+            mobilePhone: '',
+            address: ''
         };
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {

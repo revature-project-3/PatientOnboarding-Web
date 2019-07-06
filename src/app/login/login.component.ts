@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
   username = '';
-  user_id: number;
+  userId: number;
   loginForm: FormGroup;
   loading = false;
   submitted = false;
@@ -77,12 +77,15 @@ export class LoginComponent implements OnInit {
     this.user = {
       password: this.password,
       username: this.username,
-      userId: this.user_id,
+      userId: this.userId,
       email: '',
       firstName: '',
       lastName: '',
       occupation: '',
-      birthdate: ''
+      birthdate: '',
+      homePhone: '',
+      mobilePhone: '',
+      address: ''
     };
 
   }

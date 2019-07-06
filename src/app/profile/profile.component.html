@@ -42,15 +42,15 @@
           <div class="col-sm-4 col-md-4">
             <p>
               {{currentUser.firstName}} {{currentUser.lastName}} <br />
-              January 30, 1974 <br />
-              John.Doe@gmail.com
+              {{currentUser.birthdate}} <br />
+              {{currentUser.email}}
             </p>
           </div>
           <div class="col-sm-2 col-md-4">
             <p>
-              Address: Unknown
-              <br />Home:   (555)555-5555
-              <br />Mobile: (555)545-5454
+              {{currentUser.address}}
+              <br />Home:   {{currentUser.homePhone}}
+              <br />Mobile: {{currentUser.mobilePhone}}
             </p>
           </div>
         </div>
