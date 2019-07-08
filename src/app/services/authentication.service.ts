@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IUser } from './User';
+import { UserAuth } from './UserAuth';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +22,7 @@ export class AuthenticationService {
     login(username, password) {
         username = username.toLowerCase();
         const payload = new HttpParams().set('username', username).set('password', password);
-        return this.http.post<IUser>(`${environment.apiUrl}/auth/authenticate`, payload)
+        return this.http.post<UserAuth>(`${environment.apiUrl}/auth/authenticate`, payload)
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
