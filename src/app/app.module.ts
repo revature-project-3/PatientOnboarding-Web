@@ -38,6 +38,7 @@ import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-ap
       { path: 'home', component: HomePageComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'appointment', component: ScheduleAppointmentComponent },
       { path: '', component: HomePageComponent}
     ], { onSameUrlNavigation: 'reload' })
   ],
