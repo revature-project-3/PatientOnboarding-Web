@@ -38,7 +38,15 @@ export class AuthenticationService {
                 return user;
             }));
     }
-
+    test() {
+      console.log('in test');
+      const payload = new HttpParams().set('username', 'testUser').set('password', 'testpass');
+      return this.http.post<any>(`${environment.apiUrl}/auth/test`, payload)
+      .pipe(map(user => {
+          console.log('User: ' + user);
+          return user;
+      }));
+    }
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');

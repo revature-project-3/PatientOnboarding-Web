@@ -36,3 +36,4 @@ export class CurrentUserService {
         return this.http.post(`${environment.apiUrl}/resetPassword`, payload);
     }
 }
+
