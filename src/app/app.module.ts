@@ -20,7 +20,7 @@ import { DemoMaterialModule } from 'src/material-module';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-
+import { SchedulerModule } from 'angular-calendar-scheduler';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +49,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
+    SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
 
     RouterModule.forRoot([
       { path: 'home', component: HomePageComponent },

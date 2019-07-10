@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-schedule-appointment',
@@ -10,14 +9,30 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 })
 export class ScheduleAppointmentComponent implements OnInit {
   myForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {
-
+  constructor(public modalService: NgbActiveModal, private fb: FormBuilder) {
+    this.createForm();
    }
 
   ngOnInit() {
-
+    this.myForm = this.fb.group({
+      chosenDate: [ '', Validators.required ]
+    });
+    this.myForm.setValue({
+      chosenDate: new Date(2017, 4, 1)
+    });
   }
-
-
+  private createForm() {
+    this.myForm = this.fb.group({
+      firstName: '',
+      lastName: '',
+      password: '',
+      city: ''
+    });
+  }
+  closeModal() {
+    this.modalService.close('Modal Closed');
+  }
+  private submitForm() {
+    this.modalService.close(this.myForm.value);
+  }
 }

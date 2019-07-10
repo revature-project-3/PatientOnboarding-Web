@@ -1,42 +1,16 @@
-<!-- <div style="padding: 7px">
+<div style="padding: 7px">
   <form [formGroup]="myForm">
-    <mat-form-field class="example-full-width">
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker touchUi #picker></mat-datepicker>
-    </mat-form-field>
-    <div class="form-group">
+    <div>
+      <label class="control-label" for="date">Date</label>
+      <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="Date"/>
+    </div>
+    <div class="form-group"> <!-- Submit button -->
       <button class="btn btn-primary " name="submit" type="submit">Submit</button>
     </div>
   </form>
   <p *ngIf="myForm.valid">
     Your choice: {{myForm.value.chosenDate | date: 'dd/MM/y H:mm:ss'}}
   </p>
-</div> -->
 
-<div class="container">
-  <div class="row">
-      <div class='col-sm-6'>
-          <div class="form-group">
-              <div class='input-group date' id='datetimepicker5'>
-                  <input type='text' class="form-control" />
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-          </div>
-      </div>
-      <script type="text/javascript">
-          $(function () {
-              $('#datetimepicker5').datetimepicker({
-                  defaultDate: "11/1/2013",
-                  disabledDates: [
-                      moment("12/25/2013"),
-                      new Date(2013, 11 - 1, 21),
-                      "11/22/2013 00:53"
-                  ]
-              });
-          });
-      </script>
-  </div>
+
 </div>
