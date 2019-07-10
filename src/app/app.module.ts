@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { SchedulerModule } from 'angular-calendar-scheduler';
 import { SelectModule } from 'ng2-select';
+import { UpdateinsuranceComponent } from './updateinsurance/updateinsurance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { SelectModule } from 'ng2-select';
     MedicalHistoryComponent,
     EdituserComponent,
     ScheduleAppointmentComponent,
-    TestComponent
+    TestComponent,
+    UpdateinsuranceComponent
   ],
   exports: [
     DemoMaterialModule
@@ -59,7 +61,7 @@ import { SelectModule } from 'ng2-select';
       { path: 'register', component: RegisterComponent },
       { path: 'appointment', component: ScheduleAppointmentComponent },
       { path: 'test', component: TestComponent},
-      { path: '', component: HomePageComponent}
+      { path: '', component: LoginComponent}
     ], { onSameUrlNavigation: 'reload' })
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
