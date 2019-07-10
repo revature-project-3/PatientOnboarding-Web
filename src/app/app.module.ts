@@ -21,6 +21,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { SchedulerModule } from 'angular-calendar-scheduler';
+import { SelectModule } from 'ng2-select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { SchedulerModule } from 'angular-calendar-scheduler';
     HttpClientModule,
     DemoMaterialModule,
     BrowserAnimationsModule,
+    SelectModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory

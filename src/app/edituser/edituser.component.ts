@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 
 import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import {SelectModule} from 'ng2-select';
 
 
 @Component({

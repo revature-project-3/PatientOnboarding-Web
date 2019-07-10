@@ -1,16 +1,20 @@
-<div style="padding: 7px">
-  <form [formGroup]="myForm">
-    <div>
-      <label class="control-label" for="date">Date</label>
-      <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="Date"/>
-    </div>
-    <div class="form-group"> <!-- Submit button -->
-      <button class="btn btn-primary " name="submit" type="submit" (click)="onSubmit()">Submit</button>
-    </div>
-  </form>
-  <p *ngIf="myForm.valid">
-    Your choice: {{myForm.value.chosenDate | date: 'dd/MM/y H:mm:ss'}}
-  </p>
+<p>
+  Please select a day and time that you are available for your initial
+  appointment.
+</p>
+  <div class="day form-group">
+    <label>Select a day</label>
+    <br />
+    <select id="daySelector">
+      <option *ngFor="let mday of days" [ngValue]="mday">{{ mday }}</option>
+    </select>
+  </div>
+  <div class="time form-group">
+    <label>Select a time</label>
+    <br />
+    <select id="timeSelector">
+      <option *ngFor="let mtime of times" [ngValue]="mtime">{{ mtime }}</option>
+    </select>
+  </div>
+  <div class="btn btn-secondary" (click)="onSubmit()">Submit</div>
 
-
-</div>
