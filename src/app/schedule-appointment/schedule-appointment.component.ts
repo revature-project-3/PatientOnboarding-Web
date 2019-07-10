@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ScheduleAppointmentComponent implements OnInit {
   myForm: FormGroup;
-  constructor(public modalService: NgbActiveModal, private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {
     this.createForm();
    }
 
@@ -29,10 +29,7 @@ export class ScheduleAppointmentComponent implements OnInit {
       city: ''
     });
   }
-  closeModal() {
-    this.modalService.close('Modal Closed');
-  }
-  private submitForm() {
-    this.modalService.close(this.myForm.value);
+  onSubmit() {
+    console.log(this.myForm.get('chosenDate'));
   }
 }
