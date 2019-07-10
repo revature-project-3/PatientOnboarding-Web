@@ -16,6 +16,10 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 import { TestComponent } from './test/test.component';
+import { DemoMaterialModule } from 'src/material-module';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -30,12 +34,22 @@ import { TestComponent } from './test/test.component';
     ScheduleAppointmentComponent,
     TestComponent
   ],
+  exports: [
+    DemoMaterialModule
+  ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DemoMaterialModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
+
     RouterModule.forRoot([
       { path: 'home', component: HomePageComponent },
       { path: 'login', component: LoginComponent },
