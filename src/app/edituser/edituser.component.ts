@@ -26,8 +26,12 @@ export class EdituserComponent {
     this.myForm = this.fb.group({
       firstName: '',
       lastName: '',
-      password: '',
-      city: ''
+      city: '',
+      state: '',
+      birthday: '',
+      address1: '',
+      address2: '',
+      zipcode: ''
     });
   }
   closeModal() {

@@ -61,6 +61,7 @@ import { UpdateinsuranceComponent } from './updateinsurance/updateinsurance.comp
       { path: 'register', component: RegisterComponent },
       { path: 'appointment', component: ScheduleAppointmentComponent },
       { path: 'test', component: TestComponent},
+      { path: 'insurance', component: UpdateinsuranceComponent },
       { path: '', component: LoginComponent}
     ], { onSameUrlNavigation: 'reload' })
   ],
