@@ -1,12 +1,10 @@
-
-export interface IUser {
-    password: string;
-    username: string;
-    userId: number;
-    email: string;
+export interface MyForm {
+  fullName: string;
     firstName: string;
     lastName: string;
-    fullName: string;
+    email: string;
+    password: string;
+    username: string;
     occupation: string;
     birthdate: string;
     homePhone: string;

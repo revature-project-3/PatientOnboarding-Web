@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { IUser } from './User';
+import { zip } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CurrentUserService {
@@ -34,6 +35,21 @@ export class CurrentUserService {
         const payload = new HttpParams()
             .set('email', email);
         return this.http.post(`${environment.apiUrl}/resetPassword`, payload);
+    }
+
+    updateUser(fullName, phonenumber, birthday, email, city, state, address1, address2, zipcode) {
+        const payload = new HttpParams()
+            .set('fullname', fullName)
+            .set('birthday', birthday)
+            .set('email', email)
+            .set('city', city)
+            .set('state', state)
+            .set('phonenumber', phonenumber)
+            .set('address1', address1)
+            .set('address2', address2)
+            .set('zipcode', zipcode);
+        console.log(payload);
+        return this.http.post(`${environment.apiUrl}/patient/patientdemo`, payload);
     }
 }
 

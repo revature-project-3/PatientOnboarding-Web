@@ -81,11 +81,16 @@ export class LoginComponent implements OnInit {
       email: '',
       firstName: '',
       lastName: '',
+      fullName: '',
       occupation: '',
       birthdate: '',
       homePhone: '',
       mobilePhone: '',
-      address: ''
+      address1: '',
+      address2: '',
+      state: '',
+      city: '',
+      zipcode: 0
     };
 
   }
