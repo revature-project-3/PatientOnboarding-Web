@@ -27,13 +27,15 @@ export class ProfileComponent implements OnInit {
         username: '',
         password: '',
         email: '',
-        firstName: '',
-        lastName: '',
+        fullName: '',
         birthdate: '',
-        occupation: '',
         homePhone: '',
         mobilePhone: '',
-        address: ''
+        address1: '',
+        address2: '',
+        state: '',
+        city: '',
+        zipcode: 0
     };
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
         // If it is a NavigationEnd event re-initalise the component

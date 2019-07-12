@@ -17,12 +17,11 @@ export class CurrentUserService {
             .set('user_id', id);
         return this.http.post<IUser>(`${environment.apiUrl}/user/getUserById`, payload);
     }
-    register(username, password, firstName, lastName, email) {
+    register(username, password, fullName, email) {
         const payload = new HttpParams()
             .set('username', username)
             .set('password', password)
-            .set('firstname', firstName)
-            .set('lastname', lastName)
+            .set('fullname', fullName)
             .set('email', email);
         console.log(payload);
         return this.http.post(`${environment.apiUrl}/auth/registerUser`, payload);

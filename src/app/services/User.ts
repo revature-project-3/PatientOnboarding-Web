@@ -4,10 +4,7 @@ export interface IUser {
     username: string;
     userId: number;
     email: string;
-    firstName: string;
-    lastName: string;
     fullName: string;
-    occupation: string;
     birthdate: string;
     homePhone: string;
     mobilePhone: string;

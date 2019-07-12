@@ -72,16 +72,7 @@ get f() { return this.myForm.controls; }
     }
     this.updateForm = this.myForm.value;
     console.log(this.updateForm);
-    this.updateUser.fullName = this.updateForm.fullName;
-    this.updateUser.birthdate = this.updateForm.birthdate;
-    this.updateUser.email = this.updateForm.email;
-    this.updateUser.city = this.updateForm.city;
-    this.updateUser.homePhone = this.updateForm.homePhone;
-    this.updateUser.address1 = this.updateForm.address1;
-    this.updateUser.address2 = this.updateForm.address2;
-    this.updateUser.state = this.updateForm.state;
-    this.updateUser.zipcode = this.updateForm.zipcode;
-    console.log(this.updateUser);
+
 
     this.loading = true;
     this.userService.updateUser(  this.updateForm.fullName,

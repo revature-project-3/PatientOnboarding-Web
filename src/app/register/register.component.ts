@@ -33,10 +33,7 @@ export class RegisterComponent implements OnInit {
             username: '',
             password: '',
             email: '',
-            firstName: '',
-            lastName: '',
             fullName: '',
-            occupation: '',
             birthdate: '',
             homePhone: '',
             mobilePhone: '',
@@ -76,16 +73,14 @@ export class RegisterComponent implements OnInit {
         console.log(this.tForm);
         this.regUser.username = this.tForm.username;
         this.regUser.password = this.tForm.password;
-        this.regUser.firstName = this.tForm.firstName;
-        this.regUser.lastName = this.tForm.lastName;
+        this.regUser.fullName = this.tForm.firstName + ' ' + this.tForm.lastName;
         this.regUser.email = this.tForm.email;
         console.log(this.regUser);
 
         this.loading = true;
         this.userService.register(  this.regUser.username,
                                     this.regUser.password,
-                                    this.regUser.firstName,
-                                    this.regUser.lastName,
+                                    this.regUser.fullName,
                                     this.regUser.email)
             .pipe(first())
             .subscribe(
