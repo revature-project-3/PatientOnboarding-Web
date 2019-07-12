@@ -35,11 +35,16 @@ export class RegisterComponent implements OnInit {
             email: '',
             firstName: '',
             lastName: '',
+            fullName: '',
             occupation: '',
             birthdate: '',
             homePhone: '',
             mobilePhone: '',
-            address: ''
+            address1: '',
+            address2: '',
+            city: '',
+            state: '',
+            zipcode: 0,
         };
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
