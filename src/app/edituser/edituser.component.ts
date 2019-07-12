@@ -31,7 +31,9 @@ export class EdituserComponent {
       birthday: '',
       address1: '',
       address2: '',
-      zipcode: ''
+      zipcode: '',
+      email: '',
+      phonenumber: ''
     });
   }
   closeModal() {
