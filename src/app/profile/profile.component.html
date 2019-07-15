@@ -33,22 +33,22 @@
 
   </div>
 </div> -->
-<div class="container">
+<div class="container" style="padding-top: 1.5em">
   <div class="panel-group">
     <div class="panel panel-primary">
-      <div class="panel-heading">Patient Information</div>
+      <div class="panel-heading" style="padding-left: 10px"> Patient Information</div>
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-4 col-md-4">
             <p>
-              {{currentUser.firstName}} {{currentUser.lastName}} <br />
+              {{currentUser.fullName}}<br />
               {{currentUser.birthdate}} <br />
               {{currentUser.email}}
             </p>
           </div>
           <div class="col-sm-2 col-md-4">
             <p>
-              {{currentUser.address}}
+              {{currentUser.address1}} {{currentUser.address2}}
               <br />Home:   {{currentUser.homePhone}}
               <br />Mobile: {{currentUser.mobilePhone}}
             </p>
