@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { CurrentUserService } from '../services';
 
 @Component({
   selector: 'app-schedule-appointment',
@@ -10,7 +11,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 export class ScheduleAppointmentComponent implements OnInit {
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: CurrentUserService) {
 
    }
    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
@@ -20,10 +21,16 @@ export class ScheduleAppointmentComponent implements OnInit {
   }
 
   onSubmit() {
-   let e = (document.getElementById('daySelector')) as HTMLSelectElement;
-   let sel = e.selectedIndex;
-   let opt = e.options[sel];
+    let e = (document.getElementById('daySelector')) as HTMLSelectElement;
+    let sel = e.selectedIndex;
+    let dayopt = e.options[sel];
+    let t = (document.getElementById('timeSelector')) as HTMLSelectElement;
+    let selt = t.selectedIndex;
+    let timeopt = t.options[selt];
 
-   console.log(opt.text);
+    console.log(dayopt.text);
+    this.userService.getAppointment(dayopt.text, timeopt.text).subscribe(data => {
+      console.log(data);
+    });
   }
 }

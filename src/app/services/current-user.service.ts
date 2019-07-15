@@ -50,5 +50,11 @@ export class CurrentUserService {
         console.log(payload);
         return this.http.post(`${environment.apiUrl}/patient/patientdemo`, payload);
     }
+    getAppointment(date, time) {
+      const payload = new HttpParams()
+        .set('date', date)
+        .set('time', time);
+      return this.http.post(`${environment.apiUrl}/appointment/getAppointment`, payload);
+    }
 }
 
