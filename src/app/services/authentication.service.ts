@@ -25,7 +25,7 @@ export class AuthenticationService {
         return this.http.post<UserAuth>(`${environment.apiUrl}/auth/authenticate`, payload)
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('jwtUser', JSON.stringify(user));
                 console.log(JSON.stringify(user));
                 this.currentUserSubject.next(user);
                 return user;
@@ -38,18 +38,17 @@ export class AuthenticationService {
                 return user;
             }));
     }
-    test() {
-      console.log('in test');
-      const payload = new HttpParams().set('username', 'testUser').set('password', 'testpass');
-      return this.http.post<any>(`${environment.apiUrl}/auth/test`, payload)
-      .pipe(map(user => {
-          console.log('User: ' + user);
-          return user;
-      }));
-    }
+
     logout() {
         // remove user from local storage and set current user to null
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('jwtUser');
         this.currentUserSubject.next(null);
+    }
+
+    setUser(user) {
+      let temp = this.currentUserValue;
+      temp.user = user;
+      localStorage.setItem('jwtUser', JSON.stringify(temp));
+      console.log(this.currentUserValue);
     }
 }

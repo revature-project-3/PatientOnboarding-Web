@@ -3,6 +3,7 @@ import { AuthenticationService, CurrentUserService } from '../services';
 import { IUser } from '../services/User';
 import { Subscription, Observable, of } from 'rxjs';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { UserAuth } from '../services/UserAuth';
 
 @Component({
   selector: 'app-profile',
@@ -11,50 +12,31 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   subscription: Subscription;
-  logUser: IUser;
-  currentUser: IUser;
-  bannerImage = 'assets/Cool-Cat-Cropped.jpg';
-  userId: number;
+  currentUser: UserAuth;
   navigationSubscription: Subscription;
 
-  constructor(  private router: Router,
-                private route: ActivatedRoute,
-                private userService: AuthenticationService,
-                private fetchUserService: CurrentUserService
-            ) {
-    this.currentUser = {
-        userId: 0,
-        username: '',
-        password: '',
-        email: '',
-        fullName: '',
-        birthdate: '',
-        homePhone: '',
-        mobilePhone: '',
-        address1: '',
-        address2: '',
-        state: '',
-        city: '',
-        zipcode: 0
-    };
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private userService: AuthenticationService,
+              private fetchUserService: CurrentUserService
+  ) {
+    this.currentUser = userService.currentUserValue;
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
-        // If it is a NavigationEnd event re-initalise the component
-        if (e instanceof NavigationEnd) {
-          this.ngOnInit();
-        }
-      });
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd) {
+        this.ngOnInit();
+      }
+    });
   }
 
   ngOnInit() {
-      this.userService.currentUser.subscribe(
-        cUser => this.logUser = cUser
-      );
-      this.userId = +this.route.snapshot.paramMap.get('id');
-      console.log(this.userId);
-      this.getUser();
+    this.userService.currentUser.subscribe(
+      cUser => this.currentUser = cUser
+    );
+    console.log(this.currentUser);
+    // this.getUser();
   }
   getUser(): void {
-      this.currentUser = this.logUser;
     // this.fetchUserService.getById(this.user_id).subscribe(cUser => {
     //     this.currentUser = cUser;
     // });
