@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { CurrentUserService } from '../services';
+import { Appointment } from '../services/appointment';
 
 @Component({
   selector: 'app-schedule-appointment',
@@ -10,7 +11,7 @@ import { CurrentUserService } from '../services';
 })
 export class ScheduleAppointmentComponent implements OnInit {
   myForm: FormGroup;
-
+  appointment: Appointment;
   constructor(private fb: FormBuilder, private userService: CurrentUserService) {
 
    }
@@ -31,6 +32,7 @@ export class ScheduleAppointmentComponent implements OnInit {
     console.log(dayopt.text);
     this.userService.getAppointment(dayopt.text, timeopt.text).subscribe(data => {
       console.log(data);
+      this.appointment = data as Appointment;
     });
   }
 }

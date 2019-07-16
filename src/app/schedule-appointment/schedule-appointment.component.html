@@ -2,19 +2,25 @@
   Please select a day and time that you are available for your initial
   appointment.
 </p>
-  <div class="day form-group">
-    <label>Select a day</label>
-    <br />
-    <select id="daySelector">
-      <option *ngFor="let mday of days" [ngValue]="mday">{{ mday }}</option>
-    </select>
-  </div>
-  <div class="time form-group">
-    <label>Select a time</label>
-    <br />
-    <select id="timeSelector">
-      <option *ngFor="let mtime of times" [ngValue]="mtime">{{ mtime }}</option>
-    </select>
-  </div>
-  <div class="btn btn-secondary" (click)="onSubmit()">Submit</div>
-
+<div class="day form-group">
+  <label>Select a day</label>
+  <br />
+  <select id="daySelector">
+    <option *ngFor="let mday of days" [ngValue]="mday">{{ mday }}</option>
+  </select>
+</div>
+<div class="time form-group">
+  <label>Select a time</label>
+  <br />
+  <select id="timeSelector">
+    <option *ngFor="let mtime of times" [ngValue]="mtime">{{ mtime }}</option>
+  </select>
+</div>
+<div class="btn btn-secondary" (click)="onSubmit()">Submit</div>
+<div *ngIf="appointment">
+  <p>Appointment Scheduled:</p>
+  {{ appointment.date }} <br />
+  {{ appointment.time }} <br />
+  {{ appointment.reason }} <br />
+  {{ appointment.description }} <br />
+</div>
