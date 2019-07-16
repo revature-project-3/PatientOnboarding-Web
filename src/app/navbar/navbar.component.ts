@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
 
     modalRef.result.then((result) => {
       console.log(result);
+      localStorage.setItem('patient', JSON.stringify(result));
     }).catch((error) => {
       console.log(error);
     });

@@ -7,6 +7,7 @@ import {MyForm} from '../services/myForm';
 import {ActivatedRoute} from '@angular/router';
 import {CurrentUserService} from '../services';
 import { IUser } from '../services/User';
+import { isBuffer } from 'util';
 
 
 
@@ -22,7 +23,7 @@ export class EdituserComponent implements OnInit {
   myForm: FormGroup;
   updateForm: MyForm;
   returnUrl: string;
-  updateUser: IUser;
+  updateUser = {} as IUser;
 
   states = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM',
           'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA',
@@ -51,12 +52,12 @@ get f() { return this.myForm.controls; }
       fullName: '',
       city: '',
       state: '',
-      birthday: '',
+      birthdate: '',
       address1: '',
       address2: '',
       zipcode: '',
       email: '',
-      phonenumber: ''
+      homePhone: ''
     });
   }
   closeModal() {
@@ -83,9 +84,20 @@ get f() { return this.myForm.controls; }
                                     this.updateForm.state,
                                     this.updateForm.address1,
                                     this.updateForm.address2,
-                                    this.updateForm.zipcode);
+                                    this.updateForm.zipcode)
+    .subscribe();
+    this.updateUser.fullName = this.updateForm.fullName;
+    this.updateUser.birthdate = this.updateForm.birthdate;
+    this.updateUser.email = this.updateForm.email;
+    this.updateUser.city = this.updateForm.city;
+    this.updateUser.homePhone = this.updateForm.homePhone;
+    this.updateUser.state = this.updateForm.state;
+    this.updateUser.address1 = this.updateForm.address1;
+    this.updateUser.address2 = this.updateForm.address2;
+    this.updateUser.zipcode = this.updateForm.zipcode;
+    localStorage.setItem('patient', JSON.stringify(this.updateUser));
+    this.modalService.close(this.myForm.value);
   }
-   // this.modalService.close(this.myForm.value);
 }
 
 
