@@ -7,7 +7,6 @@ import { zip } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CurrentUserService {
-
     constructor(private http: HttpClient) { }
 
     getAll() {

@@ -12,5 +12,17 @@ export class TestComponent implements OnInit {
 
   ngOnInit() {
   }
+  clickme() {
+    console.log('in clickme');
+    this.aS.test().subscribe(
+      data => {
 
+      },
+      error => {
+          if (error.status === 200) {
+            error = '';
+          }
+      }
+  );
+  }
 }

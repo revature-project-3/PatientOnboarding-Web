@@ -41,15 +41,16 @@
         <div class="row">
           <div class="col-sm-4 col-md-4">
             <p>
-              {{currentUser.user.fullName}}<br />
-              {{currentUser.user.birthdate}} <br />
-              {{currentUser.user.email}}
+              {{currentUser.fullName}}<br />
+              {{currentUser.birthdate}} <br />
+              {{currentUser.email}}
             </p>
           </div>
           <div class="col-sm-2 col-md-4">
             <p>
-              {{currentUser.user.address1}} {{currentUser.user.address2}} {{currentUser.user.city}}, {{currentUser.user.state}} {{currentUser.user.zipcode}}
-              <br />Phone:   {{currentUser.user.homePhone}}
+              {{currentUser.address1}} {{currentUser.address2}}
+              <br />Home:   {{currentUser.homePhone}}
+              <br />Mobile: {{currentUser.mobilePhone}}
             </p>
           </div>
         </div>

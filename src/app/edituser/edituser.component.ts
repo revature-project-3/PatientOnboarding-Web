@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import {SelectModule} from 'ng2-select';
 import {MyForm} from '../services/myForm';
 import {ActivatedRoute} from '@angular/router';
-import {CurrentUserService, AuthenticationService} from '../services';
+import {CurrentUserService} from '../services';
 import { IUser } from '../services/User';
 
 
@@ -35,7 +35,6 @@ export class EdituserComponent implements OnInit {
               private fb: FormBuilder,
               private route: ActivatedRoute,
               private userService: CurrentUserService,
-              private authServ: AuthenticationService,
               private formBuilder: FormBuilder) {
     this.createForm();
   }
@@ -84,12 +83,9 @@ get f() { return this.myForm.controls; }
                                     this.updateForm.state,
                                     this.updateForm.address1,
                                     this.updateForm.address2,
-                                    this.updateForm.zipcode)
-    .subscribe(data => {
-      this.authServ.setUser(data);
-    });
-    this.modalService.close(this.myForm.value);
+                                    this.updateForm.zipcode);
   }
+   // this.modalService.close(this.myForm.value);
 }
 
 
