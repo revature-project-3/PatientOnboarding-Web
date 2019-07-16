@@ -51,6 +51,8 @@ export class CurrentUserService {
         return this.http.post(`${environment.apiUrl}/patient/patientdemo`, payload);
     }
     getAppointment(date, time) {
+      console.log('date: ' + date);
+      console.log('Time: ' + time);
       const payload = new HttpParams()
         .set('date', date)
         .set('time', time);
