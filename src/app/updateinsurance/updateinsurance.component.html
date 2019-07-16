@@ -25,4 +25,14 @@
       type="text"
       class="form-control"
     />
+    <div id="btn-container" class="form-group col-md-6 p-3">
+      <button [disabled]="loading" class="btn btn-primary btn-sm">
+          <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-1"
+          ></span>
+          Submit
+      </button>
+      <a routerLink="/login" class="btn btn-link">Cancel</a>
   </div>
+</div>

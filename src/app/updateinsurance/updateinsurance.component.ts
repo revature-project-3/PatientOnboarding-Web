@@ -8,6 +8,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class UpdateinsuranceComponent implements OnInit {
   myForm: FormGroup;
+
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
