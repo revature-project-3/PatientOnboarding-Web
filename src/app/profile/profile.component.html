@@ -40,9 +40,9 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-4 col-md-4">
-            <p>Patients Full Name: <span *ngIf="currentUser.fullName == patient.fullName">{{currentUser.fullName}}</span><span *ngIf="patient.fullName && patient.fullName != currentUser.fullName">{{patient.fullName}}</span></p>
+            <p>Patients Full Name: <span *ngIf="!patient">{{currentUser.fullName}}</span><span *ngIf="patient && patient.fullName && patient.fullName != currentUser.fullName">{{patient.fullName}}</span></p>
             <p *ngIf="patient">Birthdate: {{patient.birthdate}}</p>
-            <p>Email: <span *ngIf="!patient.email">{{currentUser.email}}</span><span *ngIf="patient.email">{{patient.email}}</span></p>
+            <p>Email: <span *ngIf="!patient">{{currentUser.email}}</span><span *ngIf="patient && patient.email">{{patient.email}}</span></p>
           </div>
           <div class="col-sm-2 col-md-4">
             <p *ngIf="patient">Address: {{patient.address1}} {{patient.address2}} <br>
