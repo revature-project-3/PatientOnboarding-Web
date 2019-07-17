@@ -99,6 +99,7 @@ get f() { return this.myForm.controls; }
     this.updateUser.zipcode = this.updateForm.zipcode;
     localStorage.setItem('patient', JSON.stringify(this.updateUser));
     this.modalService.close(this.myForm.value);
+    location.reload();
   }
 }
 

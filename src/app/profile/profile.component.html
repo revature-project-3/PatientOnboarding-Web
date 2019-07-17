@@ -40,7 +40,7 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-4 col-md-4">
-            <p>Patients Full Name: <span *ngIf="!patient">{{currentUser.fullName}}</span><span *ngIf="patient && patient.fullName && patient.fullName != currentUser.fullName">{{patient.fullName}}</span></p>
+            <p>Patients Full Name: <span *ngIf="!patient">{{currentUser.fullName}}</span><span *ngIf="patient && patient.fullName">{{patient.fullName}}</span></p>
             <p *ngIf="patient">Birthdate: {{patient.birthdate}}</p>
             <p>Email: <span *ngIf="!patient">{{currentUser.email}}</span><span *ngIf="patient && patient.email">{{patient.email}}</span></p>
           </div>

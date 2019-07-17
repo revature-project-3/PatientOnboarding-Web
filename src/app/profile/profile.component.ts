@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
                 private userService: AuthenticationService,
                 private fetchUserService: CurrentUserService
             ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.currentUser = {
         userId: 0,
         username: '',
@@ -52,8 +53,6 @@ export class ProfileComponent implements OnInit {
       this.userService.currentPatient.subscribe(
         cUser => this.patient = cUser
       );
-      this.userId = +this.route.snapshot.paramMap.get('id');
-
 
   }
   getUser(): void {

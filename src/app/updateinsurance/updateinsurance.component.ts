@@ -27,7 +27,7 @@ export class UpdateinsuranceComponent implements OnInit {
     this.myForm = this.fb.group({
       provider: ['', Validators.required],
       phonenumber: ['', Validators.required],
-      policynumber: ['', Validators.required] ,
+      policynumber: ['', Validators.required],
       type: ['', Validators.required]
     });
   }
@@ -35,10 +35,14 @@ export class UpdateinsuranceComponent implements OnInit {
   submitForm() {
 
     this.submitted = true;
-
+    console.log('clicked');
     // stop here if form is invalid
     if (this.myForm.invalid) {
-        return;
+      this.loading = true;
+      this.delay(3000).then(any=>{
+        this.loading = false;
+      });
+      return;
     }
     this.Iform = this.myForm.value;
     console.log(this.Iform + 'Iform');
@@ -46,6 +50,14 @@ export class UpdateinsuranceComponent implements OnInit {
     this.userService.editInsurance(this.Iform.provider,
                                     this.Iform.phonenumber,
                                     this.Iform.type,
-                                    this.Iform.policynumber);
+                                    this.Iform.policynumber)
+    .subscribe(data => {
+      console.log(data);
+    });
   }
+  async delay(ms: number) {
+    await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+  }
+
+
 }
