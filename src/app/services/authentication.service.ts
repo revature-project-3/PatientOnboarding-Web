@@ -8,17 +8,23 @@ import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<any>;
+    private patient: BehaviorSubject<any>;
+    public currentPatient: Observable<any>;
     public currentUser: Observable<any>;
 
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
+        this.patient = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('patient')));
+        this.currentPatient = this.patient.asObservable();
     }
 
     public get currentUserValue() {
         return this.currentUserSubject.value;
     }
-
+    public get patientValue() {
+      return this.patient.value;
+    }
     login(username, password) {
         username = username.toLowerCase();
         const payload = new HttpParams().set('username', username).set('password', password);

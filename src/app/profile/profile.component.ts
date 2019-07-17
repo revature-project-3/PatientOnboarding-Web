@@ -11,7 +11,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   subscription: Subscription;
-  logUser: IUser;
+  patient: IUser;
   currentUser: IUser;
   bannerImage = 'assets/Cool-Cat-Cropped.jpg';
   userId: number;
@@ -47,14 +47,17 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
       this.userService.currentUser.subscribe(
-        cUser => this.logUser = cUser
+        cUser => this.currentUser = cUser
+      );
+      this.userService.currentPatient.subscribe(
+        cUser => this.patient = cUser
       );
       this.userId = +this.route.snapshot.paramMap.get('id');
-      console.log(this.userId);
-      this.getUser();
+
+
   }
   getUser(): void {
-      this.currentUser = this.logUser;
+      // this.currentUser = this.logUser;
     // this.fetchUserService.getById(this.user_id).subscribe(cUser => {
     //     this.currentUser = cUser;
     // });
