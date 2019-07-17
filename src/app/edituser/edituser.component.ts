@@ -64,6 +64,8 @@ get f() { return this.myForm.controls; }
   }
   private submitForm() {
 
+    this.modalService.close(this.myForm.value);
+
     this.submitted = true;
 
     // stop here if form is invalid
@@ -85,7 +87,6 @@ get f() { return this.myForm.controls; }
                                     this.updateForm.address2,
                                     this.updateForm.zipcode);
   }
-   // this.modalService.close(this.myForm.value);
 }
 
 

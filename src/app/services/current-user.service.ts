@@ -50,6 +50,16 @@ export class CurrentUserService {
         console.log(payload);
         return this.http.post(`${environment.apiUrl}/patient/patientdemo`, payload);
     }
+    editInsurance( provider, phonenumber, policynumber, type) {
+        const payload = new HttpParams()
+            .set('provider', provider)
+            .set('phonenumber', phonenumber)
+            .set('policynumber', policynumber)
+            .set('type', type);
+        console.log(payload);
+        return this.http.post(`${environment.apiUrl}/insurance/patientInsurance`, payload);
+    }
+
     getAppointment(date, time) {
       console.log('date: ' + date);
       console.log('Time: ' + time);
