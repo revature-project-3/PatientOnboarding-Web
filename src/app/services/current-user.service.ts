@@ -24,7 +24,6 @@ export class CurrentUserService {
             .set('password', password)
             .set('fullname', fullName)
             .set('email', email);
-        console.log(payload);
         return this.http.post(`${environment.apiUrl}/auth/registerUser`, payload);
     }
 

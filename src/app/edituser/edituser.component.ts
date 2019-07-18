@@ -74,7 +74,6 @@ get f() { return this.myForm.controls; }
         return;
     }
     this.updateForm = this.myForm.value;
-    console.log(this.updateForm);
 
 
     this.loading = true;

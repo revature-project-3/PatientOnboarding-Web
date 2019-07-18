@@ -29,9 +29,7 @@ export class ScheduleAppointmentComponent implements OnInit {
     let selt = t.selectedIndex;
     let timeopt = t.options[selt];
 
-    console.log(dayopt.text);
     this.userService.getAppointment(dayopt.text, timeopt.text).subscribe(data => {
-      console.log(data);
       this.appointment = data as Appointment;
     });
   }
