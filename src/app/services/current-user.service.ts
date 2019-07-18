@@ -18,6 +18,7 @@ export class CurrentUserService {
         return this.http.post<IUser>(`${environment.apiUrl}/user/getUserById`, payload);
     }
     register(username, password, fullName, email) {
+        username = username.toLowerCase();
         const payload = new HttpParams()
             .set('username', username)
             .set('password', password)
